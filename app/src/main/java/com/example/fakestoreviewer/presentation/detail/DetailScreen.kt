@@ -15,13 +15,17 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import com.example.fakestoreviewer.util.Result
 import com.example.fakestoreviewer.domain.model.Product
 
 
 @Composable
-fun DetailScreen(productId: Int, viewModel: DetailViewModel = hiltViewModel()) {
+fun DetailScreen(
+    productId: Int,
+    viewModel: DetailViewModel = hiltViewModel()
+) {
     LaunchedEffect(Unit) {
         viewModel.loadProduct(productId)
     }

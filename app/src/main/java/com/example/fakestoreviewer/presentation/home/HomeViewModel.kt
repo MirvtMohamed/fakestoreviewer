@@ -8,6 +8,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import com.example.fakestoreviewer.util.Result
+import jakarta.inject.Inject
+
 class HomeViewModel @Inject constructor(
     private val repository: ProductRepository
 ) : ViewModel() {
