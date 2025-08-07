@@ -19,6 +19,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import com.example.fakestoreviewer.util.Result
 import com.example.fakestoreviewer.domain.model.Product
+import androidx.compose.runtime.getValue
 
 
 @Composable

@@ -18,7 +18,8 @@ import com.example.fakestoreviewer.util.Result
 import com.example.fakestoreviewer.domain.model.Product
 import com.example.fakestoreviewer.presentation.components.ProductCard
 import androidx.compose.foundation.lazy.items
-
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.graphics.Color
 
 
 @Composable
@@ -39,9 +40,10 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), navController: NavCon
             }
         }
         is Result.Error -> {
-            SnackbarHost(hostState = remember { SnackbarHostState() }) {
-                Text("Error: ${(state as Result.Error).message}")
+            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                Text("Error: ${(state as Result.Error).message}", color = Color.Red)
             }
         }
+
     }
 }

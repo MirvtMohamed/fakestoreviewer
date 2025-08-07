@@ -6,11 +6,15 @@ import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
 
 object RetrofitProvider {
-    val retrofit = Retrofit.Builder()
+    private val contentType = "application/json".toMediaType()
+
+    private val json = Json {
+        ignoreUnknownKeys = true
+    }
+
+    val api: ProductApi = Retrofit.Builder()
         .baseUrl("https://api.escuelajs.co/api/v1/")
-        .addConverterFactory(Json { ignoreUnknownKeys = true }.asConverterFactory("application/json".toMediaType()))
+        .addConverterFactory(json.asConverterFactory(contentType))
         .build()
-
-    val api = retrofit.create(ProductApi::class.java)
-
+        .create(ProductApi::class.java)
 }
